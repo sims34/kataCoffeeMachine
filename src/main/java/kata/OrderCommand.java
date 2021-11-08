@@ -29,6 +29,5 @@ public class OrderCommand {
         else
             sb.append(":");
     }
-
 }
 
