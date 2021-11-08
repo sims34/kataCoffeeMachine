@@ -1,6 +1,6 @@
 package kata;
 
-public abstract class Order implements  SugarInTheDrink{
+public class Order implements  SugarInTheDrink{
 
     private String productName;
     private int numberOfSugar;
@@ -16,7 +16,6 @@ public abstract class Order implements  SugarInTheDrink{
         this.hasAStrick = false;
         this.message = message;
     }
-    public  abstract double cost();
 
     public void addSugar(int numberOfSugar) {
         this.numberOfSugar = numberOfSugar;

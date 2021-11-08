@@ -14,12 +14,13 @@ public class OrderCommandTest {
     @Test
     public void shouldReturnCoffeWithOutSugarAndStick() {
         //Arrange
-        Order coffeeOrder = new CoffeeOrder("coffee", "");
+        Drink coffee = new Coffee("coffee");
+        Order order = new Order(coffee.getDrinkName(),"");
         String expected = "C::";
         String actual = "";
 
         //Act
-        actual = OrderCommand.sendCommandToDrinkerMachine(coffeeOrder);
+        actual = OrderCommand.sendCommandToDrinkerMachine(order);
 
         //Assert
         assertThat(expected).isEqualTo(actual);
@@ -28,7 +29,8 @@ public class OrderCommandTest {
     @Test
     public void shouldReturnTeaWithOutSugarAndStick() {
         //Arrange
-        Order teaOrder = new TeaOrder("tea", "Welcome");
+        Drink tea = new Tea("tea");
+        Order teaOrder = new Order(tea.getDrinkName(), "Welcome");
         String expected = "T::";
         String actual = "";
 
@@ -42,7 +44,8 @@ public class OrderCommandTest {
     @Test
     public void shouldReturnChocolateWithOutSugarAndStick() {
         //Arrange
-        Order chocolateOrder = new ChocolateOrder("CHOCOLATE", "Process ...");
+        Drink choco = new Chocolate("chocolate");
+        Order chocolateOrder = new Order(choco.getDrinkName(), "");
         String expected = "H::";
         String actual = "";
 
@@ -56,13 +59,14 @@ public class OrderCommandTest {
     @Test
     public void shouldReturnCoffeWithOneSugarAndOneStick() {
         //Arrange
-        Order coffeeOrder = new CoffeeOrder("coffee", "");
-        coffeeOrder.addSugar(1);
+        Drink coffee = new Coffee("coffee");
+        Order order = new Order(coffee.getDrinkName(),"");
+        order.addSugar(1);
         String expected = "C:1:0";
         String actual = "";
 
         //Act
-        actual = OrderCommand.sendCommandToDrinkerMachine(coffeeOrder);
+        actual = OrderCommand.sendCommandToDrinkerMachine(order);
 
         //Assert
         assertThat(expected).isEqualTo(actual);
@@ -72,7 +76,8 @@ public class OrderCommandTest {
     @Test
     public void shouldReturnCoffeWithTwoSugarAndOneStick() {
         //Arrange
-        Order coffeeOrder = new CoffeeOrder("coffee", "");
+        Drink coffee = new Coffee("coffee");
+        Order coffeeOrder = new Order(coffee.getDrinkName(),"");
         coffeeOrder.addSugar(2);
         String expected = "C:2:0";
         String actual = "";
@@ -86,7 +91,8 @@ public class OrderCommandTest {
 
     @Test
     public void shouldReturnMessageIfOrderContainMessage() {
-        Order coffeeOrder = new CoffeeOrder("", "Welcome ...");
+        Drink coffee = new Coffee("coffee");
+        Order coffeeOrder = new Order("", "Welcome ...");
         String expected = "M:Welcome ...";
         String actual = "";
 

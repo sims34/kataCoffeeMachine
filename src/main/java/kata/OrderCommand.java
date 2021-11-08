@@ -18,7 +18,7 @@ public class OrderCommand {
             addSugar(order, sb);
             return sb.toString();
         }
-        if(! order.getMessage().isEmpty()) return sb.append("M:").append(order.getMessage()).toString();
+        if(!order.getMessage().isEmpty()) return sb.append("M:").append(order.getMessage()).toString();
         return sb.toString();
     }
 
