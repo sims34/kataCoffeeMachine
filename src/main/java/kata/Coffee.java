@@ -1,12 +1,13 @@
 package kata;
 
 public class Coffee extends Drink {
+    public final static String CODE_COFFEE = "C:";
 
     public Coffee() {
     }
 
-    public Coffee(String drinkName) {
-        super(drinkName);
+    public Coffee(String drinkName, String drinkCode) {
+        super(drinkName, drinkCode);
     }
 
     @Override
