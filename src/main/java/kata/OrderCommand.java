@@ -23,6 +23,7 @@ public class OrderCommand {
         return sb.append("M:Command invalid").toString();
     }
 
+
         private static void addStick(Order order, StringBuilder sb) {
         if(order.hasAStrick()) {
             sb.append(":0");
