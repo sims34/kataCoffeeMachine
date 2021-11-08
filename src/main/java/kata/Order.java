@@ -1,6 +1,6 @@
 package kata;
 
-public class Order implements  SugarInTheDrink{
+public abstract class Order implements  SugarInTheDrink{
 
     private String productName;
     private int numberOfSugar;
@@ -16,6 +16,7 @@ public class Order implements  SugarInTheDrink{
         this.hasAStrick = false;
         this.message = message;
     }
+    public  abstract double cost();
 
     public void addSugar(int numberOfSugar) {
         this.numberOfSugar = numberOfSugar;
@@ -33,10 +34,6 @@ public class Order implements  SugarInTheDrink{
     }
     public boolean hasAStrick() {
         return hasAStrick;
-    }
-
-    public void setHasAStrick(boolean hasAStrick) {
-        this.hasAStrick = hasAStrick;
     }
 
     public String getMessage() {

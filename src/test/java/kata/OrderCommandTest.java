@@ -14,7 +14,7 @@ public class OrderCommandTest {
     @Test
     public void shouldReturnCoffeWithOutSugarAndStick() {
         //Arrange
-        Order coffeeOrder = new Order("coffee", "");
+        Order coffeeOrder = new CoffeeOrder("coffee", "");
         String expected = "C::";
         String actual = "";
 
@@ -28,7 +28,7 @@ public class OrderCommandTest {
     @Test
     public void shouldReturnTeaWithOutSugarAndStick() {
         //Arrange
-        Order teaOrder = new Order("tea", "Welcome");
+        Order teaOrder = new TeaOrder("tea", "Welcome");
         String expected = "T::";
         String actual = "";
 
@@ -42,7 +42,7 @@ public class OrderCommandTest {
     @Test
     public void shouldReturnChocolateWithOutSugarAndStick() {
         //Arrange
-        Order chocolateOrder = new Order("CHOCOLATE", "Process ...");
+        Order chocolateOrder = new ChocolateOrder("CHOCOLATE", "Process ...");
         String expected = "H::";
         String actual = "";
 
@@ -56,7 +56,7 @@ public class OrderCommandTest {
     @Test
     public void shouldReturnCoffeWithOneSugarAndOneStick() {
         //Arrange
-        Order coffeeOrder = new Order("coffee", "");
+        Order coffeeOrder = new CoffeeOrder("coffee", "");
         coffeeOrder.addSugar(1);
         String expected = "C:1:0";
         String actual = "";
@@ -72,7 +72,7 @@ public class OrderCommandTest {
     @Test
     public void shouldReturnCoffeWithTwoSugarAndOneStick() {
         //Arrange
-        Order coffeeOrder = new Order("coffee", "");
+        Order coffeeOrder = new CoffeeOrder("coffee", "");
         coffeeOrder.addSugar(2);
         String expected = "C:2:0";
         String actual = "";
@@ -86,7 +86,7 @@ public class OrderCommandTest {
 
     @Test
     public void shouldReturnMessageIfOrderContainMessage() {
-        Order coffeeOrder = new Order("", "Welcome ...");
+        Order coffeeOrder = new CoffeeOrder("", "Welcome ...");
         String expected = "M:Welcome ...";
         String actual = "";
 
