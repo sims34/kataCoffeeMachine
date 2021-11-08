@@ -3,7 +3,7 @@ package kata;
 public class OrderCommand {
 
 
-        public static String sendOrderToDrinkerMachine(Order order) {
+        public static String sendCommandToDrinkerMachine(Order order) {
             return createCommand(order);
         }
 
