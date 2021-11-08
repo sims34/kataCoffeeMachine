@@ -2,19 +2,20 @@ package kata;
 
 public class Order implements  SugarInTheDrink{
 
-    private String productName;
+    private Drink drink;
     private int numberOfSugar;
     private boolean hasAStrick;
     private String message;
-
+    private double amount;
 
     public Order() {}
 
-    public Order(String productName, String message) {
-        this.productName = productName;
-        this.numberOfSugar = 0;
-        this.hasAStrick = false;
+    public Order(Drink productName, String message, double amount) {
+        this.drink = productName;
         this.message = message;
+        this.amount = amount;
+        this.hasAStrick = false;
+        this.numberOfSugar = 0;
     }
 
     public void addSugar(int numberOfSugar) {
@@ -22,9 +23,16 @@ public class Order implements  SugarInTheDrink{
         this.hasAStrick = true;
     }
 
+    public double getAmount() {
+        return amount;
+    }
 
-    public String getProductName() {
-        return productName;
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+
+    public Drink getDrink() {
+        return drink;
     }
 
 

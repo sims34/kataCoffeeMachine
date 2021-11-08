@@ -13,12 +13,12 @@ public class OrderCommand {
 
         private static String getDrinkInstruction(Order order) {
         StringBuilder sb = new StringBuilder();
-        if (DrinkDb.getDrinks().containsKey(order.getProductName().toLowerCase())) {
-            sb.append(DrinkDb.getDrinks().get(order.getProductName().toLowerCase()));
+        if (DrinkProtocolDb.getDrinksProtocol().containsKey(order.getDrink().getDrinkName().toLowerCase())) {
+            sb.append(DrinkProtocolDb.getDrinksProtocol().get(order.getDrink().getDrinkName().toLowerCase()));
             addSugar(order, sb);
             return sb.toString();
         }
-        if(!order.getMessage().isEmpty()) return sb.append("M:").append(order.getMessage()).toString();
+        if(!order.getMessage().isEmpty())  sb.append("M:").append(order.getMessage());
         return sb.toString();
     }
 
