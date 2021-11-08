@@ -1,6 +1,6 @@
 package kata;
 
-public class Order {
+public class Order implements  SugarInTheDrink{
 
     private String productName;
     private int numberOfSugar;
@@ -10,15 +10,16 @@ public class Order {
 
     public Order() {}
 
-    public Order(String productName, int numberOfSugar, boolean hasAStrick, String message) {
+    public Order(String productName, String message) {
         this.productName = productName;
-        this.numberOfSugar = numberOfSugar;
-        this.hasAStrick = hasAStrick;
+        this.numberOfSugar = 0;
+        this.hasAStrick = false;
         this.message = message;
     }
 
     public void addSugar(int numberOfSugar) {
         this.numberOfSugar = numberOfSugar;
+        this.hasAStrick = true;
     }
 
 

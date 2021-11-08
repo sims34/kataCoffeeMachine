@@ -16,26 +16,18 @@ public class OrderCommand {
         if (DrinkDb.getDrinks().containsKey(order.getProductName().toLowerCase())) {
             sb.append(DrinkDb.getDrinks().get(order.getProductName().toLowerCase()));
             addSugar(order, sb);
-            addStick(order, sb);
             return sb.toString();
         }
         if(! order.getMessage().isEmpty()) return sb.append("M:").append(order.getMessage()).toString();
-        return sb.append("M:Command invalid").toString();
-    }
-
-
-        private static void addStick(Order order, StringBuilder sb) {
-        if(order.hasAStrick()) {
-            sb.append(":0");
-        }
-        else
-            sb.append(":");
+        return sb.toString();
     }
 
         private static void addSugar(Order order, StringBuilder sb) {
         if (order.getNumberOfSugar() > 0 ) {
-            sb.append(String.valueOf(order.getNumberOfSugar()));
+            sb.append(String.valueOf(order.getNumberOfSugar())).append(":0");
         }
+        else
+            sb.append(":");
     }
 
 }
