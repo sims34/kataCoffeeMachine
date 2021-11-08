@@ -19,6 +19,7 @@ public class OrderCommand {
             addStick(order, sb);
             return sb.toString();
         }
+        if(! order.getMessage().isEmpty()) return sb.append("M:").append(order.getMessage()).toString();
         return sb.append("M:Command invalid").toString();
     }
 

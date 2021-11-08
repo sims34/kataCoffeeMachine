@@ -1,7 +1,6 @@
 package kata;
 
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -24,7 +23,6 @@ public class OrderCommandTest {
 
         //Assert
         assertThat(expected).isEqualTo(actual);
-        // Assert.assertEquals(expected, actual);
     }
 
     @Test
@@ -58,9 +56,7 @@ public class OrderCommandTest {
     @Test
     public void shouldReturnCoffeWithOneSugarAndOneStick() {
         //Arrange
-        Order coffeeOrder = new Order("coffee", 0, false, "");
-        coffeeOrder.setHasAStrick(true);
-        coffeeOrder.addSugar(1);
+        Order coffeeOrder = new Order("coffee", 1, true, "");
         String expected = "C:1:0";
         String actual = "";
 
@@ -75,9 +71,7 @@ public class OrderCommandTest {
     @Test
     public void shouldReturnCoffeWithTwoSugarAndOneStick() {
         //Arrange
-        Order coffeeOrder = new Order("coffee", 0, false, "");
-        coffeeOrder.setHasAStrick(true);
-        coffeeOrder.addSugar(2);
+        Order coffeeOrder = new Order("coffee", 2, true, "");
         String expected = "C:2:0";
         String actual = "";
 
@@ -91,9 +85,7 @@ public class OrderCommandTest {
     @Test
     public void shouldReturnCoffeWithTwoSugarAndNoStick() {
         //Arrange
-        Order coffeeOrder = new Order("coffee", 0, false, "");
-        coffeeOrder.setHasAStrick(false);
-        coffeeOrder.addSugar(2);
+        Order coffeeOrder = new Order("coffee", 2, false, "");
         String expected = "C:2:";
         String actual = "";
 
@@ -104,5 +96,18 @@ public class OrderCommandTest {
         assertThat(expected).isEqualTo(actual);
     }
 
+    @Test
+    public void shouldReturnMessageIfOrderContainMessage() {
+        Order coffeeOrder = new Order("", 0, false, "Welcome ...");
+        String expected = "M:Welcome ...";
+        String actual = "";
+
+        //Act
+        actual = OrderCommand.sendCommandToDrinkerMachine(coffeeOrder);
+
+        //Assert
+        assertThat(expected).isEqualTo(actual);
+
+    }
 }
 
