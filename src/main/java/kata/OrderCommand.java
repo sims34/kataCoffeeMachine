@@ -13,8 +13,8 @@ public class OrderCommand {
 
         private static String getDrinkInstruction(Order order) {
         StringBuilder sb = new StringBuilder();
-        if (Drink.getDrinks().containsKey(order.getProductName().toLowerCase())) {
-            sb.append(Drink.getDrinks().get(order.getProductName().toLowerCase()));
+        if (DrinkDb.getDrinks().containsKey(order.getProductName().toLowerCase())) {
+            sb.append(DrinkDb.getDrinks().get(order.getProductName().toLowerCase()));
             addSugar(order, sb);
             addStick(order, sb);
             return sb.toString();

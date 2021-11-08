@@ -3,7 +3,7 @@ package kata;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Drink {
+public class DrinkDb {
 
     public final static String COFFEE = "coffee";
     public final static String TEA = "tea";
