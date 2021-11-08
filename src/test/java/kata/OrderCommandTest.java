@@ -15,7 +15,7 @@ public class OrderCommandTest {
     public void shouldReturnCoffeWithOutSugarAndStick() {
         //Arrange
         Drink coffee = new Coffee("coffee");
-        Order order = new Order(coffee,"", 0);
+        Order order = new Order(coffee,"", coffee.cost());
         String expected = "C::";
         String actual = "";
 
@@ -30,7 +30,7 @@ public class OrderCommandTest {
     public void shouldReturnTeaWithOutSugarAndStick() {
         //Arrange
         Drink tea = new Tea("tea");
-        Order teaOrder = new Order(tea, "Welcome", 0);
+        Order teaOrder = new Order(tea, "Welcome", tea.cost());
         String expected = "T::";
         String actual = "";
 
@@ -45,7 +45,7 @@ public class OrderCommandTest {
     public void shouldReturnChocolateWithOutSugarAndStick() {
         //Arrange
         Drink choco = new Chocolate("chocolate");
-        Order chocolateOrder = new Order(choco, "",0);
+        Order chocolateOrder = new Order(choco, "",choco.cost());
         String expected = "H::";
         String actual = "";
 
@@ -60,7 +60,7 @@ public class OrderCommandTest {
     public void shouldReturnCoffeWithOneSugarAndOneStick() {
         //Arrange
         Drink coffee = new Coffee("coffee");
-        Order order = new Order(coffee,"",0);
+        Order order = new Order(coffee,"",coffee.cost());
         order.addSugar(1);
         String expected = "C:1:0";
         String actual = "";
@@ -77,7 +77,7 @@ public class OrderCommandTest {
     public void shouldReturnCoffeWithTwoSugarAndOneStick() {
         //Arrange
         Drink coffee = new Coffee("coffee");
-        Order coffeeOrder = new Order(coffee,"", 0);
+        Order coffeeOrder = new Order(coffee,"", coffee.cost());
         coffeeOrder.addSugar(2);
         String expected = "C:2:0";
         String actual = "";
@@ -94,7 +94,7 @@ public class OrderCommandTest {
        //Arrange
         Drink coffee = new Coffee("coffee");
         coffee.setDrinkName("");
-        Order coffeeOrder = new Order(coffee, "Welcome ...",0);
+        Order coffeeOrder = new Order(coffee, "Welcome ...",coffee.cost());
         String expected = "M:Welcome ...";
         String actual = "";
 
@@ -110,10 +110,9 @@ public class OrderCommandTest {
     public void shouldReturnCoffeeWithNoSugarAndStickIfAmountIsCorrect() {
         //Arrange
         Drink coffee = new Coffee("coffee");
-        double amount = 0.6;
+        double amount = 0;
         Order orderwithPayment = new Order(coffee, "", amount);
-        orderwithPayment.setAmount(0.6);
-        String expected ="C::";
+        String expected ="M:missing 0.6";
         String actual ="";
 
         //Act

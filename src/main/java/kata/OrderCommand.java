@@ -13,6 +13,7 @@ public class OrderCommand {
 
         private static String getDrinkInstruction(Order order) {
         StringBuilder sb = new StringBuilder();
+        if (order.getAmount() == 0) return sb.append("M:missing ").append(order.getDrink().cost()).toString();
         if (DrinkProtocolDb.getDrinksProtocol().containsKey(order.getDrink().getDrinkName().toLowerCase())) {
             sb.append(DrinkProtocolDb.getDrinksProtocol().get(order.getDrink().getDrinkName().toLowerCase()));
             addSugar(order, sb);
