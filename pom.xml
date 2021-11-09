@@ -7,7 +7,10 @@
     <groupId>io.simon</groupId>
     <artifactId>io.simon</artifactId>
     <version>1.0-SNAPSHOT</version>
+<<<<<<< HEAD
 
+=======
+>>>>>>> feature
     <properties>
         <maven.compiler.release>11</maven.compiler.release>
         <maven.compiler.target>11</maven.compiler.target>
@@ -18,6 +21,15 @@
 
     <dependencies>
         <dependency>
+<<<<<<< HEAD
+=======
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+>>>>>>> feature
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
             <version>3.13.2</version>
@@ -29,6 +41,7 @@
             <version>5.6.1</version>
             <scope>test</scope>
         </dependency>
+<<<<<<< HEAD
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
@@ -41,5 +54,7 @@
             <version>RELEASE</version>
             <scope>test</scope>
         </dependency>
+=======
+>>>>>>> feature
     </dependencies>
 </project>
