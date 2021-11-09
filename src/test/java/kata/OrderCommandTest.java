@@ -11,7 +11,6 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Use the pattern AAA (Arrange, Act, Assert) for write the tests
  * source : https://docs.microsoft.com/fr-fr/visualstudio/test/unit-test-basics?view=vs-2019
  * KATA : https://simcap.github.io/coffeemachine/cm-second-iteration.html
- * ex : https://github.com/mica16/TDD-Java-WealAppVTC/blob/master/pom.xml
  */
 
 public class OrderCommandTest {

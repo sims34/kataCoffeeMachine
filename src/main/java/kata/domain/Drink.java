@@ -10,11 +10,6 @@ public  abstract class Drink {
     public String getDrinkCode() {
         return drinkCode;
     }
-
-    public String getDrinkName() {
-        return drinkName;
-    }
-
     public void setDrinkName(String drinkName) {
         this.drinkName = drinkName;
     }

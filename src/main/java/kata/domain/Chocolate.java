@@ -8,8 +8,6 @@ public class Chocolate extends Drink {
         setDrinkCode(code);
         setDrinkName(name);
     }
-
-
     @Override
     public double cost() {
         return 0.5;

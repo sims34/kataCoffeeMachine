@@ -9,7 +9,6 @@ public class DrinkExtraHot extends DrinkDecorator{
     public double cost() {
         return 0;
     }
-
     @Override
     public String getDrinkCode() {
         return drink.getDrinkCode() + codeExtraHot;

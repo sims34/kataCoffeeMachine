@@ -8,6 +8,10 @@ import java.util.Locale;
 
 public class OrderCommand {
 
+    private final static String SEPARATOR = ":";
+    private final static String PATTERN = "#.#";
+    private final static String MESSAGE = "M:";
+    private final static String MESSAGE_ERROR = "M:missing ";
 
     public static String sendCommandToDrinkerMachine(Order order) {
         return prepareDrinkerMachineInstruction(order);
@@ -19,16 +23,16 @@ public class OrderCommand {
             return getMessageWithMissingMoney(order, sb);
         generateCode(order, sb);
         if (hasMessage(order))
-            sb.append("M:").append(order.getMessage());
+            sb.append(MESSAGE).append(order.getMessage());
         return sb.toString();
     }
 
     private static void generateCode(Order order, StringBuilder sb) {
-        sb.append(order.getDrink().getDrinkCode()).append(":");
+        sb.append(order.getDrink().getDrinkCode()).append(SEPARATOR);
         if (order.getNumberOfSugar() > 0) {
-            sb.append(order.getNumberOfSugar()).append(":0");
+            sb.append(order.getNumberOfSugar()).append(SEPARATOR).append(order.getCodeStrick());
         } else
-            sb.append(":");
+            sb.append(SEPARATOR);
     }
 
     private static boolean hasMessage(Order order) {
@@ -36,11 +40,11 @@ public class OrderCommand {
     }
 
     private static String getMessageWithMissingMoney(Order order, StringBuilder sb) {
-        DecimalFormat decimalFormat = new DecimalFormat("#.#");
+        DecimalFormat decimalFormat = new DecimalFormat(PATTERN);
         decimalFormat.setDecimalFormatSymbols(DecimalFormatSymbols.getInstance(Locale.ENGLISH));
         double result = order.getDrink().cost() - order.getAmount();
         String missingMoney = decimalFormat.format(result);
-        return sb.append("M:missing ").append(missingMoney).toString();
+        return sb.append(MESSAGE_ERROR).append(missingMoney).toString();
     }
 
     private static boolean isCorrectAmount(Order order) {
