@@ -92,22 +92,6 @@ public class OrderCommandTest {
         //Assert
         assertThat(expected).isEqualTo(actual);
     }
-
-/*    @Test
-    public void shouldReturnMessageIfOrderContainOnlyMessage() {
-        //Arrange
-        Drink coffee = new Coffee();
-        coffee.setDrinkCode("");
-        Order coffeeOrder = new Order(coffee, "Welcome ...", coffee.cost());
-        String expected = "M:Welcome ...";
-        String actual = "";
-        //Act
-        actual = OrderCommand.sendCommandToDrinkerMachine(coffeeOrder);
-
-        //Assert
-        assertThat(expected).isEqualTo(actual);
-
-    }*/
     @Test
     public void shouldReturnCodeAndMessageIfHasMessageInOrder() {
         //Arrange
