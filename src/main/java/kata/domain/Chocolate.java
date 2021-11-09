@@ -1,7 +1,7 @@
 package kata.domain;
 
 public class Chocolate extends Drink {
-    public final  String code = "H:";
+    public final  String code = "H";
     public final  String name = this.getClass().getSimpleName();
 
     public Chocolate() {
@@ -14,4 +14,5 @@ public class Chocolate extends Drink {
     public double cost() {
         return 0.5;
     }
+
 }

@@ -1,6 +1,5 @@
 package kata.service;
 
-import kata.domain.OrangeJuice;
 import kata.domain.Order;
 
 import java.text.DecimalFormat;
@@ -25,7 +24,7 @@ public class OrderCommand {
     }
 
     private static void generateCode(Order order, StringBuilder sb) {
-        sb.append(order.getDrink().getDrinkCode());
+        sb.append(order.getDrink().getDrinkCode()).append(":");
         if (order.getNumberOfSugar() > 0) {
             sb.append(order.getNumberOfSugar()).append(":0");
         } else
@@ -33,9 +32,10 @@ public class OrderCommand {
     }
 
     private static boolean hasMessage(Order order) {
-        return !order.getMessage().isEmpty() ;
+        return !order.getMessage().isEmpty();
     }
-   private static String getMessageWithMissingMoney(Order order, StringBuilder sb) {
+
+    private static String getMessageWithMissingMoney(Order order, StringBuilder sb) {
         DecimalFormat decimalFormat = new DecimalFormat("#.#");
         decimalFormat.setDecimalFormatSymbols(DecimalFormatSymbols.getInstance(Locale.ENGLISH));
         double result = order.getDrink().cost() - order.getAmount();

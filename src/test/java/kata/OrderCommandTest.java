@@ -199,5 +199,35 @@ public class OrderCommandTest {
         //Assert
         assertThat(expected).isEqualTo(actual);
     }
+
+    @Test
+    public void shouldReturnCoffeExtraHotWithNoSugarAndStick() {
+        //Arrange
+        Drink coffee = new DrinkExtraHot(new Coffee());
+        Order coffeeOrder = new Order(coffee, "", coffee.cost());
+        String expected = "Ch::";
+        String actual = "";
+
+        //Act
+        actual = OrderCommand.sendCommandToDrinkerMachine(coffeeOrder);
+
+        //Assert
+        assertThat(expected).isEqualTo(actual);
+    }
+    @Test
+    public void shouldReturnCoffeExtraHotWithSugarAndStick() {
+        //Arrange
+        Drink tea = new DrinkExtraHot(new Tea());
+        Order teaOrder = new Order(tea, "", tea.cost());
+        teaOrder.addSugar(2);
+        String expected = "Th:2:0";
+        String actual = "";
+
+        //Act
+        actual = OrderCommand.sendCommandToDrinkerMachine(teaOrder);
+
+        //Assert
+        assertThat(expected).isEqualTo(actual);
+    }
 }
 

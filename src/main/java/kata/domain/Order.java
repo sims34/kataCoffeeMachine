@@ -50,4 +50,8 @@ public class Order implements SugarInTheDrink {
     public void setMessage(String message) {
         this.message = message;
     }
+
+    public boolean isExtraHot() {
+        return true;
+    }
 }
