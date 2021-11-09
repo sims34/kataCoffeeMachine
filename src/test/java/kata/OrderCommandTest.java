@@ -3,6 +3,7 @@ package kata;
 import kata.domain.*;
 import kata.service.OrderCommand;
 import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -149,6 +150,51 @@ public class OrderCommandTest {
 
         //Act
         actual = OrderCommand.sendCommandToDrinkerMachine(orderwithPayment);
+
+        //Assert
+        assertThat(expected).isEqualTo(actual);
+    }
+    @Test
+    public void shouldReturnOrangeJuice() {
+        //Arrange
+        Drink orangeJuice = new OrangeJuice();
+        Order orangeOrder = new Order(orangeJuice, "", orangeJuice.cost());
+        String expected = "O::";
+        String actual = "";
+
+        //Act
+        actual = OrderCommand.sendCommandToDrinkerMachine(orangeOrder);
+
+        //Assert
+        assertThat(expected).isEqualTo(actual);
+    }
+    @Test
+    @DisplayName("Use case for range juice price")
+    public void shouldReturnMessageErrorIfAmountIsInferior() {
+        //Arrange
+        Drink orangeJuice = new OrangeJuice();
+        double amount = 0.2;
+        Order orangeOrder = new Order(orangeJuice, "", amount);
+        String expected = "M:missing 0.4";
+        String actual = "";
+
+        //Act
+        actual = OrderCommand.sendCommandToDrinkerMachine(orangeOrder);
+
+        //Assert
+        assertThat(expected).isEqualTo(actual);
+    }
+    @Test
+    public void shouldReturnCodeAndMessageIfHasMessageInOrderOrange() {
+        //Arrange
+        Drink orangeJuice = new OrangeJuice();
+        double amount = 0.6;
+        Order orangeOrder = new Order(orangeJuice, "Test ...", amount);
+        String expected = "O::M:Test ...";
+        String actual = "";
+
+        //Act
+        actual = OrderCommand.sendCommandToDrinkerMachine(orangeOrder);
 
         //Assert
         assertThat(expected).isEqualTo(actual);

@@ -1,5 +1,6 @@
 package kata.service;
 
+import kata.domain.OrangeJuice;
 import kata.domain.Order;
 
 import java.text.DecimalFormat;
