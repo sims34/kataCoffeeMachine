@@ -3,7 +3,7 @@ package kata.domain;
 public class Order implements SugarInTheDrink {
 
     private Drink drink;
-    private final String codeStrick = "0";
+    private final String codeStick = "0";
     private int numberOfSugar;
     private String message;
     private double amount;
@@ -34,7 +34,7 @@ public class Order implements SugarInTheDrink {
         return message;
     }
 
-    public String getCodeStrick() {
-        return codeStrick;
+    public String getCodeStick() {
+        return codeStick;
     }
 }

@@ -30,7 +30,7 @@ public class OrderCommand {
     private static void generateCode(Order order, StringBuilder sb) {
         sb.append(order.getDrink().getDrinkCode()).append(SEPARATOR);
         if (order.getNumberOfSugar() > 0) {
-            sb.append(order.getNumberOfSugar()).append(SEPARATOR).append(order.getCodeStrick());
+            sb.append(order.getNumberOfSugar()).append(SEPARATOR).append(order.getCodeStick());
         } else
             sb.append(SEPARATOR);
     }
